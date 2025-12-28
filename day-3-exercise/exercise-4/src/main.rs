@@ -1,24 +1,26 @@
 use std::io;
 
-fn main() {
-    let result: f64;
+fn parse_input() -> f64 {
     let mut x: String = String::new();
-    let mut y: String = String::new();
-    let mut op: String = String::new();
-
-    println!("Enter the first number: ");
     io::stdin()
         .read_line(&mut x)
         .expect("Failed to read line");
+    let x: f64 = match x.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please type a number!");
+            return f64::NAN;
+        }
+    };
+    return x;
+}
 
-    let x: f64 = x.trim().parse().expect("Please type a number!");
-
+fn main() {
+    let result: f64;
+    println!("Enter the first number: ");
+    let x:f64 = parse_input(); 
     println!("Enter the Second number: ");
-    io::stdin()
-        .read_line(&mut y)
-        .expect("Failed to read line");
-    let y: f64 = y.trim().parse().expect("Please type a number!");
-
+    let y:f64 = parse_input();
 
     println!("List of operators");
     println!("1. +");
@@ -27,19 +29,25 @@ fn main() {
     println!("4. *");
     println!("Choose the operator: ");
 
-    io::stdin()
-        .read_line(&mut op)
-        .expect("Failed to read line");
+    let op:f64 = parse_input();
 
-    let op: i32 = op.trim().parse().expect("Please type a number!");
+    if f64::is_nan(op) {
+        println!("Invalid operator");
+        return;
+    }
+
+    let op:i32 = op as i32;
+
 
     match op {
         1 => result = x + y,
         2 => result = x - y,
         3 => result = x / y,
         4 => result = x * y,
-        _ => result = 0.0,
+        _ => result = {
+            println!("Invalid operator");
+            return;
+        }
     }
-
     println!("Result: {}", result);
 }
