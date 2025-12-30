@@ -41,15 +41,6 @@ fn main(){
     //     "sunday" => println!("last day of the week"),
     //     _=> println!("Not a day"),
     // }
-    //! Description.
-    //!
-    //! # Examples
-    //! ```rust
-    //! write me later
-    //! ```
-    //!
-    //!
-    
     println!("Enter Number:");
     let mut user_input = String::new();
     io::stdin()
