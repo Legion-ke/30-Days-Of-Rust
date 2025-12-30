@@ -1,10 +1,10 @@
 # 30 Days of Rust — Progress
 
-![Progress Badge](https://img.shields.io/badge/Progress-23.3%25-yellow)
+![Progress Badge](https://img.shields.io/badge/Progress-26.7%25-yellow)
 
 This repository is a 30-day Rust learning journal. The table below shows which days have content in the repository as of 2025-12-30.
 
-Progress: 7 / 30 (23.3%)
+Progress: 8 / 30 (26.7%)
 
 ## Day checklist
 
